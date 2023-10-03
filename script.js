@@ -5,7 +5,8 @@
 
 
 let gridSize = 4;
-let colorConst; //set the number that can be used as an RGB or HEX value
+let colorConst = "white"; 
+//set the number that can be used as an RGB or HEX value
 
 //functions for each button
 
@@ -14,6 +15,7 @@ function changeGridSize(){
     for (let i = 0; i < (gridSize * gridSize); i++) {
         let makeDiv = document.createElement('div');
         makeDiv.className = 'gridDiv';
+        document.getElementById("gridContainer").appendChild(makeDiv);
     };
 };
 
@@ -28,14 +30,11 @@ function resetGrid(){
 };
 //draw on hover
 function draw(){
+    document.getElementsByClassName("gridDiv").style.backgroundColor = colorConst;
+};
     //set colorconst to black
     //set background color of griddiv on hover 
-};
 
-//grid manipulation
-gridContainer.addEventListener('hover', () => {
-    draw();
-});
 
 //buttons to run functions
 sizeBtn.addEventListener('click', () => {
@@ -52,3 +51,18 @@ resetBtn,addEventListener('click', () => {
 //need to set up default grid on load 16x16
 const newGrid = document.querySelector('#gridContainer');
 changeGridSize(newGrid);
+
+//grid manipulation
+gridDiv.addEventListener('mouseover', () => {
+    draw();
+});
+
+
+// working functions for changing background by id , need it to work for classes
+// function draw(){
+//     document.getElementById("gridContainer").style.backgroundColor = colorConst;
+// };
+//
+// gridContainer.addEventListener('mouseover', () => {
+//     draw();
+// });
