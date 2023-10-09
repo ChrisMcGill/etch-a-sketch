@@ -1,6 +1,6 @@
 
 let gridSize = 16;
-let sketchColour = "rgb(255, 0 ,0)";
+let sketchColour = "rgb(0, 0 ,0)";
 //set the number that can be used as an RGB value
 
 
@@ -40,16 +40,22 @@ function draw(){
 };
 //wont change back to original colour
 
+//resolution
+const resolution = document.querySelector('#resolution');
+const resInput = document.querySelector('#resInput');
+resolution.textContent = `Pixels: ${((resInput.value)*(resInput.value))}`;
+resInput.addEventListener("input", (event) => {
+    resolution.textContent = `Pixels: ${((resInput.value)*(resInput.value))}`;
+});
+
 function changeColour(choice){
     sketchColour = choice;
 };
 
 function resetPad(){
-    let sketchpad = document.querySelector('#sketchpad');
     let cells = document.querySelectorAll('.gridDiv');
     cells.forEach((div) => div.style.backgroundColor = "rgb(222, 222, 222)");
 };
 
 makeSketchpad(16);
-
 

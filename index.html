@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div>
+        <h1> Etch A Sketch</h1>
+    </div>
     <div id="gridContainer">
         <div id="sketchpad">
             
@@ -16,17 +19,17 @@
 
     <div id="buttonsContainer">
         <div id="sizeContainer">
-            <input type="text" value="16" onchange="makeSketchpad(this.value)"/>
-            <button id="sizeBtn">Change grid size</button>
+            <input  id="resInput" type="range" min="2" max="100" step="1" value="16" onchange="makeSketchpad(this.value)"/>
+            <p id="resolution"></p>
         </div>
         <div id="colourContainer">
             <button id="colourBtn" onclick="changeColour('notRandom')">Colour</button>
         </div>
         <div id="randomContainer">
-            <button id="random" onclick="changeColour('random')">Random!</button>
+            <button id="randomBtn" onclick="changeColour('random')">Random!</button>
         </div>
         <div id="resetContainer">
-            <button id="resetBtn" onclick="resetPad()"></button>Reset</button>
+            <button id="resetBtn" onclick="resetPad()">Reset</button>
         </div>
     </div>
 
