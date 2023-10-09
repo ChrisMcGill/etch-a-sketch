@@ -32,15 +32,13 @@ function changeSize(input) {
 function draw(){
     if ((sketchColour === 'random')){
         this.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
-    } else if ((sketchColour === 'notRandom')){
-        this.style.backgroundColor = sketchColour;
     } else {
         this.style.backgroundColor = sketchColour;
     };
 };
 //wont change back to original colour
 
-//resolution
+//pixel display (grid h * grid w)
 const resolution = document.querySelector('#resolution');
 const resInput = document.querySelector('#resInput');
 resolution.textContent = `Pixels: ${((resInput.value)*(resInput.value))}`;
