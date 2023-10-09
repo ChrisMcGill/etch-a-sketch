@@ -1,6 +1,10 @@
 
 let gridSize = 16;
 let sketchColour = "rgb(0, 0 ,0)";
+let sketchR = 0;
+let sketchG = 0;
+let sketchB = 0;
+
 //set the number that can be used as an RGB value
 
 
@@ -33,7 +37,7 @@ function draw(){
     if ((sketchColour === 'random')){
         this.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
     } else {
-        this.style.backgroundColor = sketchColour;
+        this.style.backgroundColor = `rgb(${sketchR}, ${sketchG}, ${sketchB})`;
     };
 };
 //wont change back to original colour
@@ -57,3 +61,18 @@ function resetPad(){
 
 makeSketchpad(16);
 
+//rgb slider functions - returning undefined
+function setR(input){
+    console.log(sketchR);
+    return sketchR = input.value;
+};
+
+function setG(input){
+    return sketchG = input.value;
+};
+
+function setB(input){
+    return sketchB = input.value;
+};
+
+//add on change change show button colour too

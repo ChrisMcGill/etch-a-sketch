@@ -23,7 +23,11 @@
             <p id="resolution"></p>
         </div>
         <div id="colourContainer">
-            <button id="colourBtn" onclick="changeColour('black')">Black</button>
+            <input id="inputR" type="range" min="0" max="255" step="1" value="0" onchange="setR(this.value)"/><p>R</p>
+            <input id="inputR" type="range" min="0" max="255" step="1" value="0" onchange="setG(this.value)"/><p>G</p>
+            <input id="inputR" type="range" min="0" max="255" step="1" value="0" onchange="setB(this.value)"/><p>B</p>
+            <button id="colourBtn" onclick="changeColour()">Change colour</button>
+            <button id="colourShow"></button>
         </div>
         <div id="randomContainer">
             <button id="randomBtn" onclick="changeColour('random')">Random!</button>
