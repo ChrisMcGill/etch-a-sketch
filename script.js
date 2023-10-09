@@ -3,6 +3,7 @@ let gridSize = 16;
 let sketchColour = "rgb(255, 0 ,0)";
 //set the number that can be used as an RGB value
 
+
 function makeSketchpad(gridSize){
     let sketchpad = document.querySelector('#sketchpad');
     let cells = document.querySelectorAll('.gridDiv');
@@ -24,37 +25,31 @@ function changeSize(input) {
         makeSketchpad(input);
     } else { 
         alert("Please select a value between 1 and 100");
-    }
+    };
 };
 //alert not working
 
 function draw(){
-    this.style.backgroundColor = sketchColour;
-}
+    if ((sketchColour === 'random')){
+        this.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
+    } else if ((sketchColour === 'notRandom')){
+        this.style.backgroundColor = sketchColour;
+    } else {
+        this.style.backgroundColor = sketchColour;
+    };
+};
+//wont change back to original colour
+
+function changeColour(choice){
+    sketchColour = choice;
+};
+
+function resetPad(){
+    let sketchpad = document.querySelector('#sketchpad');
+    let cells = document.querySelectorAll('.gridDiv');
+    cells.forEach((div) => div.style.backgroundColor = "rgb(222, 222, 222)");
+};
 
 makeSketchpad(16);
 
-
-
-
-// //change colour fo sketch
-// function changeColour(){
-//     //chane color of colorconst
-// };
-// //clear grid to blank canvas
-// function resetGrid(){
-//     //set colorconst to white
-//     // change all divs to colorconst
-// };
-
-// //buttons to run functions
-// sizeBtn.addEventListener('click', () => {
-//     changeGridSize();
-// });
-// colourBtn.addEventListener('click', () => {
-//     changeColour();
-// });
-// resetBtn,addEventListener('click', () => {
-//     resetGrid();
-// });
 
