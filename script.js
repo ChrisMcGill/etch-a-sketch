@@ -1,5 +1,4 @@
-
-let gridSize = 16;
+let gridSize = 0;
 let sketchColour = "rgb(0, 0 ,0)";
 let sketchR = 0;
 let sketchG = 0;
@@ -26,7 +25,6 @@ function makeSketchpad(gridSize){
 function setRandom(){
     sketchColour = 'random';
 };
-
 function draw(){
     if ((sketchColour === 'random')){
         this.style.backgroundColor = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
@@ -34,7 +32,6 @@ function draw(){
         this.style.backgroundColor = sketchColour;
     };
 };
-//wont change back to original colour
 
 //pixel display (grid h * grid w)
 const resolution = document.querySelector('#resolution');
@@ -53,9 +50,7 @@ function resetPad(){
     cells.forEach((div) => div.style.backgroundColor = "rgb(222, 222, 222)");
 };
 
-makeSketchpad(16);
-
-//rgb slider functions - returning undefined
+//rgb slider functions
 function setR(){
     let getR = document.querySelector('#inputR');
     sketchR = getR.value;
@@ -71,8 +66,9 @@ function setB(){
     sketchB = getB.value;
     colourShow();
 };
-//add on change change show button colour too
 function colourShow(){
     const colourShow = document.querySelector('#colourBtn');
     colourShow.style.backgroundColor = `rgb(${sketchR},${sketchG},${sketchB})`;
 };
+
+makeSketchpad(16);
