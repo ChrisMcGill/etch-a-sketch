@@ -1,9 +1,11 @@
 
 let gridSize = 16;
 let sketchColour = "rgb(0, 0 ,0)";
+let sketchR = 0;
+let sketchG = 0;
+let sketchB = 0;
+
 //set the number that can be used as an RGB value
-
-
 function makeSketchpad(gridSize){
     let sketchpad = document.querySelector('#sketchpad');
     let cells = document.querySelectorAll('.gridDiv');
@@ -20,14 +22,10 @@ function makeSketchpad(gridSize){
     };
 };
 
-function changeSize(input) {
-    if ((input >=1) && (input <= 100)) { 
-        makeSketchpad(input);
-    } else { 
-        alert("Please select a value between 1 and 100");
-    };
+//workaround as previous method broke
+function setRandom(){
+    sketchColour = 'random';
 };
-//alert not working
 
 function draw(){
     if ((sketchColour === 'random')){
@@ -46,8 +44,8 @@ resInput.addEventListener("input", (event) => {
     resolution.textContent = `Pixels: ${((resInput.value)*(resInput.value))}`;
 });
 
-function changeColour(choice){
-    sketchColour = choice;
+function changeColour(){
+    sketchColour = `rgb(${sketchR},${sketchG},${sketchB})`;;
 };
 
 function resetPad(){
@@ -57,3 +55,24 @@ function resetPad(){
 
 makeSketchpad(16);
 
+//rgb slider functions - returning undefined
+function setR(){
+    let getR = document.querySelector('#inputR');
+    sketchR = getR.value;
+    colourShow();
+};
+function setG(){
+    let getG = document.querySelector('#inputG');
+    sketchG = getG.value;
+    colourShow();
+};
+function setB(){
+    let getB = document.querySelector('#inputB');
+    sketchB = getB.value;
+    colourShow();
+};
+//add on change change show button colour too
+function colourShow(){
+    const colourShow = document.querySelector('#colourBtn');
+    colourShow.style.backgroundColor = `rgb(${sketchR},${sketchG},${sketchB})`;
+};
